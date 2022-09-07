@@ -1,1 +1,13 @@
+server:
+port: 8082
 
+spring:
+jpa:
+hibernate:
+ddl-auto: update
+show-sql: true
+datasource:
+url: jdbc:mysql://localhost:3306/booksDB
+username: root
+password: 2476
+driver-class-name: com.mysql.cj.jdbc.Driver
