@@ -5,8 +5,7 @@ import com.bilge.booksbe.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class BookService {
@@ -18,4 +17,7 @@ public class BookService {
     }
 
 
+    public Book save(Book newBook) {
+        return (Book) bookRepository.save();
+    }
 }
