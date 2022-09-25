@@ -18,31 +18,20 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-
     @GetMapping(path = "/all")
     public Iterable<Book> getAll() {
         return bookService.getBooks();
     }
 
-    //deneme
-   /* @PostMapping("/enter")
-    public String enter(@RequestBody String bookName) {
-       return bookName;
-   }*/
-
-    //deneme2
-    @PostMapping(path= "/add",
-    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
-    produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public Iterable<Book> create(@RequestBody Book newBook)
-    {
-        Book persistedBook = bookService.save(newBook);
-        return (Iterable<Book>) ResponseEntity
-                .created(URI
-                        .create(String.format("/books", Book.getName())))
-                .body(persistedBook);
-            };
+    @PostMapping(path= "/add")
+    public ResponseEntity<Book> add(@RequestBody Book newBook) {
+            Book persistedBook = bookService.save(newBook);
+            return ResponseEntity
+                    .created(URI
+                            .create(String.format("/books", newBook.getName())))
+                    .body(persistedBook);
         }
+    }
 
 
 

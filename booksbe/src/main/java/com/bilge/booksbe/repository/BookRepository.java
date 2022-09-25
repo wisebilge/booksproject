@@ -6,7 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
-    //deneme
-    Iterable<Book> save();
 }
 

@@ -18,6 +18,6 @@ public class BookService {
 
 
     public Book save(Book newBook) {
-        return (Book) bookRepository.save();
+        return bookRepository.save(newBook);
     }
 }
