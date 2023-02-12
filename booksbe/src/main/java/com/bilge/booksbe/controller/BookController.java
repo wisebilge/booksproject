@@ -20,6 +20,7 @@ public class BookController {
 
     @GetMapping(path = "/all")
     public Iterable<Book> getAll() {
+
         return bookService.getBooks();
     }
 
